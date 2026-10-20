@@ -370,6 +370,7 @@ class Version:
         cls = type(self)
         return cls(self._major, self._minor, self._patch + 1)
 
+   
     def bump_prerelease(
         self,
         token: Optional[str] = "rc",
@@ -402,6 +403,7 @@ class Version:
         '3.4.6-rc.1'
         """
         cls = type(self)
+         #Aded this comment to checl the test agent
         patch = self._patch
         if self._prerelease is not None:
             prerelease = cls._increment_prerelease(self._prerelease)
@@ -457,6 +459,7 @@ build='build.10')
             build += ".0"
         return cls(self._major, self._minor, self._patch, self._prerelease, build)
 
+    
     def compare(self, other: Comparable) -> int:
         """
         Compare self with other.
@@ -473,6 +476,7 @@ build='build.10')
         0
         """
         cls = type(self)
+        #Added this to check the agent
         if isinstance(other, String.__args__):  # type: ignore
             other = cls.parse(other)
         elif isinstance(other, dict):
@@ -502,6 +506,7 @@ build='build.10')
             return -1
 
         return rccmp
+
 
     def next_version(self, part: str, prerelease_token: str = "rc") -> "Version":
         """
@@ -536,6 +541,7 @@ build='build.10')
                 f"Invalid part. Expected one of {validparts}, but got {part!r}"
             )
         version = self
+        #Touvhed for the AI review
         if version.prerelease and (
             part == "patch"
             or (part == "minor" and version.patch == 0)
