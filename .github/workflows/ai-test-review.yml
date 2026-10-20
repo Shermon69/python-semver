@@ -20,4 +20,4 @@ jobs:
       - uses: SenuriDis/R26-SE-038@v1
         with:
           groq-api-key: ${{ secrets.GROQ_API_KEY }}
-          max-functions: "3"
+          max-functions: "2"
