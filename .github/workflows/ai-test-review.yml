@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
-      contents: read
+      contents: write          # changed from read: lets the action push the tests
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
@@ -21,3 +21,5 @@ jobs:
         with:
           groq-api-key: ${{ secrets.GROQ_API_KEY }}
           max-functions: "2"
+          commit-tests: "true"               # added: commit the tests back to the PR branch
+          tests-dir: "tests/ai_generated"    # optional; this is already the default
