@@ -370,6 +370,7 @@ class Version:
         cls = type(self)
         return cls(self._major, self._minor, self._patch + 1)
 
+    #Aded this comment to checl the test agent
     def bump_prerelease(
         self,
         token: Optional[str] = "rc",
@@ -457,6 +458,7 @@ build='build.10')
             build += ".0"
         return cls(self._major, self._minor, self._patch, self._prerelease, build)
 
+    #Added this to check the agent
     def compare(self, other: Comparable) -> int:
         """
         Compare self with other.
@@ -503,6 +505,7 @@ build='build.10')
 
         return rccmp
 
+#Touvhed for the AI review
     def next_version(self, part: str, prerelease_token: str = "rc") -> "Version":
         """
         Determines next version, preserving natural order.
